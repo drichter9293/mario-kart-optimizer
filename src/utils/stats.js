@@ -1,45 +1,30 @@
-const STANDARD_POINTS = {
-  body: {
-    speed: 3,
-    acceleration: 4,
-    weight: 2,
-    handling: 3,
-    traction: 3,
-    turbo: 2
-  },
-  tire: {
-    speed: 2,
-    acceleration: 4,
-    weight: 2,
-    handling: 3,
-    traction: 5,
-    turbo: 3
-  },
-  glider: {
-    speed: 1,
-    acceleration: 1,
-    weight: 1,
-    handling: 1,
-    traction: 1,
-    turbo: 1
-  }
-};
-
-const standardize = ({
-  characterPoints,
-  bodyPoints,
-  tirePoints,
-  gliderPoints,
-  statistic
-}) => {
-  if (bodyPoints === undefined) bodyPoints = STANDARD_POINTS.body[statistic];
-  if (tirePoints === undefined) tirePoints = STANDARD_POINTS.tire[statistic];
-  if (gliderPoints === undefined)
-    gliderPoints = STANDARD_POINTS.glider[statistic];
-
+const standardize = (characterPoints, bodyPoints, tirePoints, gliderPoints) => {
   const level = characterPoints + bodyPoints + tirePoints + gliderPoints;
 
   return (level + 3) / 4;
+};
+
+export const getStandardizedStats = ({ character, body, tire, glider }) => {
+  return [
+    "speed",
+    "acceleration",
+    "weight",
+    "handling",
+    "traction",
+    "turbo"
+  ].reduce((stats, stat) => {
+    const characterPoints = character ? character[stat] : 0;
+    const bodyPoints = body ? body[stat] : 0;
+    const tirePoints = tire ? tire[stat] : 0;
+    const gliderPoints = glider ? glider[stat] : 0;
+    stats[stat] = standardize(
+      characterPoints,
+      bodyPoints,
+      tirePoints,
+      gliderPoints
+    );
+    return stats;
+  }, {});
 };
 
 export const standardizeSpeed = points => {
@@ -67,6 +52,7 @@ export const standardizeTurbo = points => {
 };
 
 const statUtils = {
+  getStandardizedStats,
   standardizeSpeed,
   standardizeAcceleration,
   standardizeWeight,

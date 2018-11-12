@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Standard Kart",
+    "icon": "../images/bodies/standard-kart.png",
+    "speed": 3,
+    "acceleration": 4,
+    "weight": 2,
+    "handling": 3,
+    "traction": 3,
+    "turbo": 4
+  },
+  {
+    "name": "Pipe Frame",
+    "icon": "../images/bodies/pipe-frame.png",
+    "speed": 1,
+    "acceleration": 6,
+    "weight": 1,
+    "handling": 5,
+    "traction": 4,
+    "turbo": 6
+  },
+  {
+    "name": "Mach 8",
+    "icon": "../images/bodies/mach-8.png",
+    "speed": 3,
+    "acceleration": 3,
+    "weight": 3,
+    "handling": 2,
+    "traction": 4,
+    "turbo": 4
+  },
+  {
+    "name": "Steel Driver",
+    "icon": "../images/bodies/steel-driver.png",
+    "speed": 4,
+    "acceleration": 1,
+    "weight": 4,
+    "handling": 1,
+    "traction": 3,
+    "turbo": 2
+  }
+]

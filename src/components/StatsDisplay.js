@@ -3,43 +3,37 @@ import React from "react";
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis } from "recharts";
 import statUtils from "../utils/stats";
 
-const CharacterStats = props => {
+const StatsDisplay = props => {
+  const standardizedStats = statUtils.getStandardizedStats({
+    character: props.character,
+    body: props.body,
+    tire: props.tire,
+    glider: props.glider
+  });
   const data = [
     {
       category: "Speed",
-      value: statUtils.standardizeSpeed({
-        characterPoints: props.character.speed
-      })
+      value: standardizedStats["speed"]
     },
     {
       category: "Acceleration",
-      value: statUtils.standardizeAcceleration({
-        characterPoints: props.character.acceleration
-      })
+      value: standardizedStats["acceleration"]
     },
     {
       category: "Weight",
-      value: statUtils.standardizeWeight({
-        characterPoints: props.character.weight
-      })
+      value: standardizedStats["weight"]
     },
     {
       category: "Handling",
-      value: statUtils.standardizeHandling({
-        characterPoints: props.character.handling
-      })
+      value: standardizedStats["handling"]
     },
     {
       category: "Traction",
-      value: statUtils.standardizeTraction({
-        characterPoints: props.character.traction
-      })
+      value: standardizedStats["traction"]
     },
     {
       category: "Mini Turbo",
-      value: statUtils.standardizeTurbo({
-        characterPoints: props.character.turbo
-      })
+      value: standardizedStats["turbo"]
     }
   ];
 
@@ -84,4 +78,4 @@ const CharacterStats = props => {
   );
 };
 
-export default CharacterStats;
+export default StatsDisplay;
