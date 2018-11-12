@@ -1,41 +1,20 @@
 import React from "react";
 
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis } from "recharts";
-import statUtils from "../utils/stats";
+import { getStandardizedStats } from "../utils/stats";
+import { STATS } from "../constants";
 
 const StatsDisplay = props => {
-  const standardizedStats = statUtils.getStandardizedStats({
+  const standardizedStats = getStandardizedStats({
     character: props.character,
     body: props.body,
     tire: props.tire,
     glider: props.glider
   });
-  const data = [
-    {
-      category: "Speed",
-      value: standardizedStats["speed"]
-    },
-    {
-      category: "Acceleration",
-      value: standardizedStats["acceleration"]
-    },
-    {
-      category: "Weight",
-      value: standardizedStats["weight"]
-    },
-    {
-      category: "Handling",
-      value: standardizedStats["handling"]
-    },
-    {
-      category: "Traction",
-      value: standardizedStats["traction"]
-    },
-    {
-      category: "Mini Turbo",
-      value: standardizedStats["turbo"]
-    }
-  ];
+  const data = STATS.map(stat => ({
+    category: stat.displayName,
+    value: standardizedStats[stat.key]
+  }));
 
   return (
     <BarChart

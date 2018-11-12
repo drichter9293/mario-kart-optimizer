@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 
 import StatsDisplay from "../components/StatsDisplay";
 import ElementSelector from "../components/ElementSelector";
+import Optimizer from "../components/Optimizer";
 
 // Unfortunate necessity to get hooks to work.
 // Follow https://github.com/gatsbyjs/gatsby/issues/9489 for updates.
@@ -41,6 +42,7 @@ export default ({ data }) => {
         <Img fixed={selectedBody.icon.childImageSharp.fixed} />
         <StatsDisplay character={selectedCharacter} body={selectedBody} />
       </div>
+      <Optimizer />
     </>
   );
 };
