@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Mario",
+    "icon": "../images/character-icons/mario.png",
+    "speed": 6,
+    "acceleration": 2,
+    "weight": 6,
+    "handling": 4,
+    "traction": 2,
+    "turbo": 2
+  },
+  {
+    "name": "Luigi",
+    "icon": "../images/character-icons/luigi.png",
+    "speed": 6,
+    "acceleration": 2,
+    "weight": 6,
+    "handling": 5,
+    "traction": 1,
+    "turbo": 2
+  },
+  {
+    "name": "Peach",
+    "icon": "../images/character-icons/peach.png",
+    "speed": 5,
+    "acceleration": 3,
+    "weight": 4,
+    "handling": 5,
+    "traction": 3,
+    "turbo": 3
+  },
+  {
+    "name": "Daisy",
+    "icon": "../images/character-icons/daisy.png",
+    "speed": 5,
+    "acceleration": 3,
+    "weight": 4,
+    "handling": 5,
+    "traction": 3,
+    "turbo": 3
+  },
+  {
+    "name": "Rosalina",
+    "icon": "../images/character-icons/rosalina.png",
+    "speed": 7,
+    "acceleration": 1,
+    "weight": 7,
+    "handling": 3,
+    "traction": 3,
+    "turbo": 2
+  },
+  {
+    "name": "Metal Mario",
+    "icon": "../images/character-icons/metal-mario.png",
+    "speed": 8,
+    "acceleration": 1,
+    "weight": 10,
+    "handling": 3,
+    "traction": 1,
+    "turbo": 1
+  }
+]
