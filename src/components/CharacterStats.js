@@ -73,6 +73,7 @@ const CharacterStats = props => {
       />
       {[1, 2, 3, 4, 5].map(index => (
         <ReferenceLine
+          key={index}
           x={index}
           stroke="rgb(52, 126, 150)"
           strokeWidth={3}
