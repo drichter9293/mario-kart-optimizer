@@ -42,7 +42,12 @@ export default ({ data }) => {
         <Img fixed={selectedBody.icon.childImageSharp.fixed} />
         <StatsDisplay character={selectedCharacter} body={selectedBody} />
       </div>
-      <Optimizer />
+      <Optimizer
+        characters={characters}
+        bodies={bodies}
+        setSelectedCharacterIndex={setSelectedCharacterIndex}
+        setSelectedBodyIndex={setSelectedBodyIndex}
+      />
     </>
   );
 };
