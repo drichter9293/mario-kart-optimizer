@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { setConfig } from "react-hot-loader";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import { Select, MenuItem } from "@material-ui/core";
 
 import StatsDisplay from "../components/StatsDisplay";
+import ElementSelector from "../components/ElementSelector";
 
 // Unfortunate necessity to get hooks to work.
 // Follow https://github.com/gatsbyjs/gatsby/issues/9489 for updates.
@@ -22,27 +22,21 @@ export default ({ data }) => {
 
   return (
     <>
-      <Select
-        value={selectedCharacterIndex}
-        onChange={event => setSelectedCharacterIndex(event.target.value)}
-      >
-        {characters.map(({ node }, index) => (
-          <MenuItem key={index} value={index}>
-            {node.name}
-          </MenuItem>
-        ))}
-      </Select>
-      <Select
-        value={selectedBodyIndex}
-        onChange={event => setSelectedBodyIndex(event.target.value)}
-      >
-        {bodies.map(({ node }, index) => (
-          <MenuItem key={index} value={index}>
-            {node.name}
-          </MenuItem>
-        ))}
-      </Select>
       <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
+        <div>
+          <ElementSelector
+            elementName="Character"
+            elements={characters}
+            selectedElementIndex={selectedCharacterIndex}
+            setSelectedElementIndex={setSelectedCharacterIndex}
+          />
+          <ElementSelector
+            elementName="Body"
+            elements={bodies}
+            selectedElementIndex={selectedBodyIndex}
+            setSelectedElementIndex={setSelectedBodyIndex}
+          />
+        </div>
         <Img fixed={selectedCharacter.icon.childImageSharp.fixed} />
         <Img fixed={selectedBody.icon.childImageSharp.fixed} />
         <StatsDisplay character={selectedCharacter} body={selectedBody} />
