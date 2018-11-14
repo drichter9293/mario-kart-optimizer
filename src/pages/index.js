@@ -21,6 +21,10 @@ export default ({ data }) => {
   const bodies = data.allBodiesJson.edges;
   const selectedBody = bodies[selectedBodyIndex].node;
 
+  const [selectedTireIndex, setSelectedTireIndex] = useState(0);
+  const tires = data.allTiresJson.edges;
+  const selectedTire = tires[selectedTireIndex].node;
+
   return (
     <>
       <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
@@ -37,10 +41,21 @@ export default ({ data }) => {
             selectedElementIndex={selectedBodyIndex}
             setSelectedElementIndex={setSelectedBodyIndex}
           />
+          <ElementSelector
+            elementName="Tire"
+            elements={tires}
+            selectedElementIndex={selectedTireIndex}
+            setSelectedElementIndex={setSelectedTireIndex}
+          />
         </div>
         <Img fixed={selectedCharacter.icon.childImageSharp.fixed} />
         <Img fixed={selectedBody.icon.childImageSharp.fixed} />
-        <StatsDisplay character={selectedCharacter} body={selectedBody} />
+        <Img fixed={selectedTire.icon.childImageSharp.fixed} />
+        <StatsDisplay
+          character={selectedCharacter}
+          body={selectedBody}
+          tire={selectedTire}
+        />
       </div>
       <Optimizer
         characters={characters}
@@ -75,6 +90,26 @@ export const query = graphql`
       }
     }
     allBodiesJson {
+      edges {
+        node {
+          name
+          icon {
+            childImageSharp {
+              fixed(width: 200, height: 125) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          speed
+          acceleration
+          weight
+          handling
+          traction
+          turbo
+        }
+      }
+    }
+    allTiresJson {
       edges {
         node {
           name
