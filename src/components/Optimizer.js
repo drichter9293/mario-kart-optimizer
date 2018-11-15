@@ -49,16 +49,29 @@ const getElementIndexOptimizedForStats = (elements, stats) => {
   return elementIndices;
 };
 
-const getOptimizedIndices = ({ characters, bodies, statsToOptimize }) => {
+const getOptimizedIndices = ({
+  characters,
+  bodies,
+  tires,
+  gliders,
+  statsToOptimize
+}) => {
   const characterIndices = getElementIndexOptimizedForStats(
     characters,
     statsToOptimize
   );
   const bodyIndices = getElementIndexOptimizedForStats(bodies, statsToOptimize);
+  const tireIndices = getElementIndexOptimizedForStats(tires, statsToOptimize);
+  const gliderIndices = getElementIndexOptimizedForStats(
+    gliders,
+    statsToOptimize
+  );
 
   return {
     characterIndices,
-    bodyIndices
+    bodyIndices,
+    tireIndices,
+    gliderIndices
   };
 };
 
@@ -80,14 +93,20 @@ const Optimizer = props => {
     const optimizedIndices = getOptimizedIndices({
       characters: props.characters,
       bodies: props.bodies,
+      tires: props.tires,
+      gliders: props.gliders,
       statsToOptimize
     });
 
     const characterIndex = optimizedIndices.characterIndices[0];
     const bodyIndex = optimizedIndices.bodyIndices[0];
+    const tireIndex = optimizedIndices.tireIndices[0];
+    const gliderIndex = optimizedIndices.gliderIndices[0];
 
     props.setSelectedCharacterIndex(characterIndex);
     props.setSelectedBodyIndex(bodyIndex);
+    props.setSelectedTireIndex(tireIndex);
+    props.setSelectedGliderIndex(gliderIndex);
   };
 
   return (

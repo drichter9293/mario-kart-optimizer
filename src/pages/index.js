@@ -25,6 +25,10 @@ export default ({ data }) => {
   const tires = data.allTiresJson.edges;
   const selectedTire = tires[selectedTireIndex].node;
 
+  const [selectedGliderIndex, setSelectedGliderIndex] = useState(0);
+  const gliders = data.allGlidersJson.edges;
+  const selectedGlider = gliders[selectedGliderIndex].node;
+
   return (
     <>
       <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
@@ -47,21 +51,33 @@ export default ({ data }) => {
             selectedElementIndex={selectedTireIndex}
             setSelectedElementIndex={setSelectedTireIndex}
           />
+          <ElementSelector
+            elementName="Glider"
+            elements={gliders}
+            selectedElementIndex={selectedGliderIndex}
+            setSelectedElementIndex={setSelectedGliderIndex}
+          />
         </div>
         <Img fixed={selectedCharacter.icon.childImageSharp.fixed} />
         <Img fixed={selectedBody.icon.childImageSharp.fixed} />
         <Img fixed={selectedTire.icon.childImageSharp.fixed} />
+        <Img fixed={selectedGlider.icon.childImageSharp.fixed} />
         <StatsDisplay
           character={selectedCharacter}
           body={selectedBody}
           tire={selectedTire}
+          glider={selectedGlider}
         />
       </div>
       <Optimizer
         characters={characters}
         bodies={bodies}
+        tires={tires}
+        gliders={gliders}
         setSelectedCharacterIndex={setSelectedCharacterIndex}
         setSelectedBodyIndex={setSelectedBodyIndex}
+        setSelectedTireIndex={setSelectedTireIndex}
+        setSelectedGliderIndex={setSelectedGliderIndex}
       />
     </>
   );
@@ -110,6 +126,26 @@ export const query = graphql`
       }
     }
     allTiresJson {
+      edges {
+        node {
+          name
+          icon {
+            childImageSharp {
+              fixed(width: 200, height: 125) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          speed
+          acceleration
+          weight
+          handling
+          traction
+          turbo
+        }
+      }
+    }
+    allGlidersJson {
       edges {
         node {
           name
