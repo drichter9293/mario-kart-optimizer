@@ -1,6 +1,5 @@
 module.exports = {
   plugins: [
-    `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -15,6 +14,12 @@ module.exports = {
       options: {
         name: `data`,
         path: `${__dirname}/src/data`
+      }
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Json` // a fixed string
       }
     }
   ]

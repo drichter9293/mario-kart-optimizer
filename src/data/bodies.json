@@ -1,6 +1,7 @@
 [
   {
     "key": "standard-kart",
+    "type": "body",
     "group": 0,
     "name": "Standard Kart",
     "icon": "../images/bodies/standard-kart.png",
@@ -19,6 +20,7 @@
   },
   {
     "key": "the-duke",
+    "type": "body",
     "group": 0,
     "name": "The Duke",
     "icon": "../images/bodies/the-duke.png",
@@ -37,6 +39,7 @@
   },
   {
     "key": "sl-roadster",
+    "type": "body",
     "group": 0,
     "name": "300 SL Roadster",
     "icon": "../images/bodies/sl-roadster.png",
@@ -55,6 +58,7 @@
   },
   {
     "key": "pipe-frame",
+    "type": "body",
     "group": 1,
     "name": "Pipe Frame",
     "icon": "../images/bodies/pipe-frame.png",
@@ -73,6 +77,7 @@
   },
   {
     "key": "varmint",
+    "type": "body",
     "group": 1,
     "name": "Varmint",
     "icon": "../images/bodies/varmint.png",
@@ -91,6 +96,7 @@
   },
   {
     "key": "city-tripper",
+    "type": "body",
     "group": 1,
     "name": "City Tripper",
     "icon": "../images/bodies/city-tripper.png",
@@ -109,6 +115,7 @@
   },
   {
     "key": "mach-8",
+    "type": "body",
     "group": 2,
     "name": "Mach 8",
     "icon": "../images/bodies/mach-8.png",
@@ -127,6 +134,7 @@
   },
   {
     "key": "sports-coupe",
+    "type": "body",
     "group": 2,
     "name": "Sports Coupe",
     "icon": "../images/bodies/sports-coupe.png",
@@ -145,6 +153,7 @@
   },
   {
     "key": "inkstriker",
+    "type": "body",
     "group": 2,
     "name": "Inkstriker",
     "icon": "../images/bodies/inkstriker.png",
@@ -163,6 +172,7 @@
   },
   {
     "key": "steel-driver",
+    "type": "body",
     "group": 3,
     "name": "Steel Driver",
     "icon": "../images/bodies/steel-driver.png",
@@ -181,6 +191,7 @@
   },
   {
     "key": "tri-speeder",
+    "type": "body",
     "group": 3,
     "name": "Tri-Speeder",
     "icon": "../images/bodies/tri-speeder.png",
@@ -199,6 +210,7 @@
   },
   {
     "key": "bone-rattler",
+    "type": "body",
     "group": 3,
     "name": "Bone Rattler",
     "icon": "../images/bodies/bone-rattler.png",
@@ -217,6 +229,7 @@
   },
   {
     "key": "cat-cruiser",
+    "type": "body",
     "group": 4,
     "name": "Cat Cruiser",
     "icon": "../images/bodies/cat-cruiser.png",
@@ -235,6 +248,7 @@
   },
   {
     "key": "comet",
+    "type": "body",
     "group": 4,
     "name": "Comet",
     "icon": "../images/bodies/comet.png",
@@ -253,6 +267,7 @@
   },
   {
     "key": "yoshi-bike",
+    "type": "body",
     "group": 4,
     "name": "Yoshi Bike",
     "icon": "../images/bodies/yoshi-bike.png",
@@ -271,6 +286,7 @@
   },
   {
     "key": "teddy-buggy",
+    "type": "body",
     "group": 4,
     "name": "Teddy Buggy",
     "icon": "../images/bodies/teddy-buggy.png",
@@ -289,6 +305,7 @@
   },
   {
     "key": "circuit-special",
+    "type": "body",
     "group": 5,
     "name": "Circuit Special",
     "icon": "../images/bodies/circuit-special.png",
@@ -307,6 +324,7 @@
   },
   {
     "key": "b-dasher",
+    "type": "body",
     "group": 5,
     "name": "B Dasher",
     "icon": "../images/bodies/b-dasher.png",
@@ -325,6 +343,7 @@
   },
   {
     "key": "p-wing",
+    "type": "body",
     "group": 5,
     "name": "P-Wing",
     "icon": "../images/bodies/p-wing.png",
@@ -343,6 +362,7 @@
   },
   {
     "key": "badwagon",
+    "type": "body",
     "group": 6,
     "name": "Badwagon",
     "icon": "../images/bodies/badwagon.png",
@@ -361,6 +381,7 @@
   },
   {
     "key": "standard-atv",
+    "type": "body",
     "group": 6,
     "name": "Standard ATV",
     "icon": "../images/bodies/standard-atv.png",
@@ -379,6 +400,7 @@
   },
   {
     "key": "gla",
+    "type": "body",
     "group": 6,
     "name": "GLA",
     "icon": "../images/bodies/gla.png",
@@ -397,6 +419,7 @@
   },
   {
     "key": "prancer",
+    "type": "body",
     "group": 7,
     "name": "Prancer",
     "icon": "../images/bodies/prancer.png",
@@ -415,6 +438,7 @@
   },
   {
     "key": "sport-bike",
+    "type": "body",
     "group": 7,
     "name": "Sport Bike",
     "icon": "../images/bodies/sport-bike.png",
@@ -433,6 +457,7 @@
   },
   {
     "key": "jet-bike",
+    "type": "body",
     "group": 7,
     "name": "Jet Bike",
     "icon": "../images/bodies/jet-bike.png",
@@ -451,6 +476,7 @@
   },
   {
     "key": "biddybuggy",
+    "type": "body",
     "group": 8,
     "name": "Biddybuggy",
     "icon": "../images/bodies/biddybuggy.png",
@@ -469,6 +495,7 @@
   },
   {
     "key": "mr-scooty",
+    "type": "body",
     "group": 8,
     "name": "Mr. Scooty",
     "icon": "../images/bodies/mr-scooty.png",
@@ -487,6 +514,7 @@
   },
   {
     "key": "landship",
+    "type": "body",
     "group": 9,
     "name": "Landship",
     "icon": "../images/bodies/landship.png",
@@ -505,6 +533,7 @@
   },
   {
     "key": "streetle",
+    "type": "body",
     "group": 9,
     "name": "Streetle",
     "icon": "../images/bodies/streetle.png",
@@ -523,6 +552,7 @@
   },
   {
     "key": "sneeker",
+    "type": "body",
     "group": 10,
     "name": "Sneeker",
     "icon": "../images/bodies/sneeker.png",
@@ -541,6 +571,7 @@
   },
   {
     "key": "gold-standard",
+    "type": "body",
     "group": 10,
     "name": "Gold Standard",
     "icon": "../images/bodies/gold-standard.png",
@@ -559,6 +590,7 @@
   },
   {
     "key": "master-cycle",
+    "type": "body",
     "group": 10,
     "name": "Master Cycle",
     "icon": "../images/bodies/master-cycle.png",
@@ -577,6 +609,7 @@
   },
   {
     "key": "standard-bike",
+    "type": "body",
     "group": 11,
     "name": "Standard Bike",
     "icon": "../images/bodies/standard-bike.png",
@@ -595,6 +628,7 @@
   },
   {
     "key": "flame-rider",
+    "type": "body",
     "group": 11,
     "name": "Flame Rider",
     "icon": "../images/bodies/flame-rider.png",
@@ -613,6 +647,7 @@
   },
   {
     "key": "wild-wiggler",
+    "type": "body",
     "group": 11,
     "name": "Wild Wiggler",
     "icon": "../images/bodies/wild-wiggler.png",
@@ -631,6 +666,7 @@
   },
   {
     "key": "silver-arrow",
+    "type": "body",
     "group": 11,
     "name": "W 25 Silver Arrow",
     "icon": "../images/bodies/silver-arrow.png",
@@ -649,6 +685,7 @@
   },
   {
     "key": "blue-falcon",
+    "type": "body",
     "group": 12,
     "name": "Blue Falcon",
     "icon": "../images/bodies/blue-falcon.png",
@@ -667,6 +704,7 @@
   },
   {
     "key": "splat-buggy",
+    "type": "body",
     "group": 12,
     "name": "Splat Buggy",
     "icon": "../images/bodies/splat-buggy.png",
@@ -685,6 +723,7 @@
   },
   {
     "key": "tanooki-kart",
+    "type": "body",
     "group": 13,
     "name": "Tanooki Kart",
     "icon": "../images/bodies/tanooki-kart.png",
@@ -703,6 +742,7 @@
   },
   {
     "key": "koopa-clown",
+    "type": "body",
     "group": 13,
     "name": "Koopa Clown",
     "icon": "../images/bodies/koopa-clown.png",

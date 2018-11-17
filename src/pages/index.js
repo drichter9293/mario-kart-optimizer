@@ -14,19 +14,19 @@ setConfig({ pureSFC: true });
 
 export default ({ data }) => {
   const [selectedCharacterIndex, setSelectedCharacterIndex] = useState(0);
-  const characters = data.allCharactersJson.edges;
+  const characters = data.characters.edges;
   const selectedCharacter = characters[selectedCharacterIndex].node;
 
   const [selectedBodyIndex, setSelectedBodyIndex] = useState(0);
-  const bodies = data.allBodiesJson.edges;
+  const bodies = data.bodies.edges;
   const selectedBody = bodies[selectedBodyIndex].node;
 
   const [selectedTireIndex, setSelectedTireIndex] = useState(0);
-  const tires = data.allTiresJson.edges;
+  const tires = data.tires.edges;
   const selectedTire = tires[selectedTireIndex].node;
 
   const [selectedGliderIndex, setSelectedGliderIndex] = useState(0);
-  const gliders = data.allGlidersJson.edges;
+  const gliders = data.gliders.edges;
   const selectedGlider = gliders[selectedGliderIndex].node;
 
   return (
@@ -84,85 +84,40 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query {
-    allCharactersJson {
-      edges {
-        node {
-          name
-          icon {
-            childImageSharp {
-              fixed(width: 125, height: 125) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          speed
-          acceleration
-          weight
-          handling
-          traction
-          turbo
-        }
-      }
+  query Data {
+    characters: allJson(filter: { type: { eq: "character" } }) {
+      ...DataFormatter
     }
-    allBodiesJson {
-      edges {
-        node {
-          name
-          icon {
-            childImageSharp {
-              fixed(width: 200, height: 125) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          speed
-          acceleration
-          weight
-          handling
-          traction
-          turbo
-        }
-      }
+    bodies: allJson(filter: { type: { eq: "body" } }) {
+      ...DataFormatter
     }
-    allTiresJson {
-      edges {
-        node {
-          name
-          icon {
-            childImageSharp {
-              fixed(width: 200, height: 125) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          speed
-          acceleration
-          weight
-          handling
-          traction
-          turbo
-        }
-      }
+    tires: allJson(filter: { type: { eq: "tire" } }) {
+      ...DataFormatter
     }
-    allGlidersJson {
-      edges {
-        node {
-          name
-          icon {
-            childImageSharp {
-              fixed(width: 200, height: 125) {
-                ...GatsbyImageSharpFixed
-              }
+    gliders: allJson(filter: { type: { eq: "glider" } }) {
+      ...DataFormatter
+    }
+  }
+`;
+
+export const dataFieldsFragment = graphql`
+  fragment DataFormatter on JsonConnection {
+    edges {
+      node {
+        name
+        icon {
+          childImageSharp {
+            fixed(width: 200, height: 125) {
+              ...GatsbyImageSharpFixed
             }
           }
-          speed
-          acceleration
-          weight
-          handling
-          traction
-          turbo
         }
+        speed
+        acceleration
+        weight
+        handling
+        traction
+        turbo
       }
     }
   }

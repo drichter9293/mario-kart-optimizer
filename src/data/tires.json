@@ -1,6 +1,7 @@
 [
   {
     "key": "standard",
+    "type": "tire",
     "group": 0,
     "name": "Standard",
     "icon": "../images/tires/standard.png",
@@ -19,6 +20,7 @@
   },
   {
     "key": "blue-standard",
+    "type": "tire",
     "group": 0,
     "name": "Blue Standard",
     "icon": "../images/tires/blue-standard.png",
@@ -37,6 +39,7 @@
   },
   {
     "key": "gla",
+    "type": "tire",
     "group": 0,
     "name": "GLA Tires",
     "icon": "../images/tires/gla.png",
@@ -55,6 +58,7 @@
   },
   {
     "key": "monster",
+    "type": "tire",
     "group": 1,
     "name": "Monster",
     "icon": "../images/tires/monster.png",
@@ -73,6 +77,7 @@
   },
   {
     "key": "hot-monster",
+    "type": "tire",
     "group": 1,
     "name": "Hot Monster",
     "icon": "../images/tires/hot-monster.png",
@@ -91,6 +96,7 @@
   },
   {
     "key": "roller",
+    "type": "tire",
     "group": 2,
     "name": "Roller",
     "icon": "../images/tires/roller.png",
@@ -109,6 +115,7 @@
   },
   {
     "key": "azure-roller",
+    "type": "tire",
     "group": 2,
     "name": "Azure Roller",
     "icon": "../images/tires/azure-roller.png",
@@ -127,6 +134,7 @@
   },
   {
     "key": "slim",
+    "type": "tire",
     "group": 3,
     "name": "Slim",
     "icon": "../images/tires/slim.png",
@@ -145,6 +153,7 @@
   },
   {
     "key": "wood",
+    "type": "tire",
     "group": 3,
     "name": "Wood",
     "icon": "../images/tires/wood.png",
@@ -163,6 +172,7 @@
   },
   {
     "key": "crimson-slim",
+    "type": "tire",
     "group": 3,
     "name": "Crimson Slim",
     "icon": "../images/tires/crimson-slim.png",
@@ -181,6 +191,7 @@
   },
   {
     "key": "slick",
+    "type": "tire",
     "group": 4,
     "name": "Slick",
     "icon": "../images/tires/slick.png",
@@ -199,6 +210,7 @@
   },
   {
     "key": "cyber-slick",
+    "type": "tire",
     "group": 4,
     "name": "Cyber Slick",
     "icon": "../images/tires/cyber-slick.png",
@@ -217,6 +229,7 @@
   },
   {
     "key": "metal",
+    "type": "tire",
     "group": 5,
     "name": "Metal",
     "icon": "../images/tires/metal.png",
@@ -235,6 +248,7 @@
   },
   {
     "key": "gold-tires",
+    "type": "tire",
     "group": 5,
     "name": "Gold Tires",
     "icon": "../images/tires/gold-tires.png",
@@ -253,6 +267,7 @@
   },
   {
     "key": "button",
+    "type": "tire",
     "group": 6,
     "name": "Button",
     "icon": "../images/tires/button.png",
@@ -271,6 +286,7 @@
   },
   {
     "key": "leaf-tires",
+    "type": "tire",
     "group": 6,
     "name": "Leaf Tires",
     "icon": "../images/tires/leaf-tires.png",
@@ -289,6 +305,7 @@
   },
   {
     "key": "off-road",
+    "type": "tire",
     "group": 7,
     "name": "Off-Road",
     "icon": "../images/tires/off-road.png",
@@ -307,6 +324,7 @@
   },
   {
     "key": "retro-off-road",
+    "type": "tire",
     "group": 7,
     "name": "Retro Off-Road",
     "icon": "../images/tires/retro-off-road.png",
@@ -325,6 +343,7 @@
   },
   {
     "key": "triforce-tires",
+    "type": "tire",
     "group": 7,
     "name": "Triforce Tires",
     "icon": "../images/tires/triforce-tires.png",
@@ -343,6 +362,7 @@
   },
   {
     "key": "sponge",
+    "type": "tire",
     "group": 8,
     "name": "Sponge",
     "icon": "../images/tires/sponge.png",
@@ -361,6 +381,7 @@
   },
   {
     "key": "cushion",
+    "type": "tire",
     "group": 8,
     "name": "Cushion",
     "icon": "../images/tires/cushion.png",

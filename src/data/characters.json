@@ -1,6 +1,7 @@
 [
   {
     "key": "baby-peach",
+    "type": "character",
     "group": 0,
     "name": "Baby Peach",
     "icon": "../images/characters/baby-peach.png",
@@ -20,6 +21,7 @@
   },
   {
     "key": "baby-daisy",
+    "type": "character",
     "group": 0,
     "name": "Baby Daisy",
     "icon": "../images/characters/baby-daisy.png",
@@ -39,6 +41,7 @@
   },
   {
     "key": "baby-rosalina",
+    "type": "character",
     "group": 1,
     "name": "Baby Rosalina",
     "icon": "../images/characters/baby-rosalina.png",
@@ -58,6 +61,7 @@
   },
   {
     "key": "lemmy",
+    "type": "character",
     "group": 1,
     "name": "Lemmy",
     "icon": "../images/characters/lemmy.png",
@@ -77,6 +81,7 @@
   },
   {
     "key": "baby-mario",
+    "type": "character",
     "group": 2,
     "name": "Baby Mario",
     "icon": "../images/characters/baby-mario.png",
@@ -96,6 +101,7 @@
   },
   {
     "key": "baby-luigi",
+    "type": "character",
     "group": 2,
     "name": "Baby Luigi",
     "icon": "../images/characters/baby-luigi.png",
@@ -115,6 +121,7 @@
   },
   {
     "key": "dry-bones",
+    "type": "character",
     "group": 2,
     "name": "Dry Bones",
     "icon": "../images/characters/dry-bones.png",
@@ -134,6 +141,7 @@
   },
   {
     "key": "mii-small",
+    "type": "character",
     "group": 2,
     "name": "Mii - Small",
     "icon": "../images/characters/mii-small.png",
@@ -153,6 +161,7 @@
   },
   {
     "key": "toadette",
+    "type": "character",
     "group": 3,
     "name": "Toadette",
     "icon": "../images/characters/toadette.png",
@@ -172,6 +181,7 @@
   },
   {
     "key": "wendy",
+    "type": "character",
     "group": 3,
     "name": "Wendy",
     "icon": "../images/characters/wendy.png",
@@ -191,6 +201,7 @@
   },
   {
     "key": "isabelle",
+    "type": "character",
     "group": 3,
     "name": "Isabelle",
     "icon": "../images/characters/isabelle.png",
@@ -210,6 +221,7 @@
   },
   {
     "key": "koopa-troopa",
+    "type": "character",
     "group": 4,
     "name": "Koopa Troopa",
     "icon": "../images/characters/koopa-troopa.png",
@@ -229,6 +241,7 @@
   },
   {
     "key": "lakitu",
+    "type": "character",
     "group": 4,
     "name": "Lakitu",
     "icon": "../images/characters/lakitu.png",
@@ -248,6 +261,7 @@
   },
   {
     "key": "bowser-jr",
+    "type": "character",
     "group": 4,
     "name": "Bowser Jr.",
     "icon": "../images/characters/bowser-jr.png",
@@ -267,6 +281,7 @@
   },
   {
     "key": "toad",
+    "type": "character",
     "group": 5,
     "name": "Toad",
     "icon": "../images/characters/toad.png",
@@ -286,6 +301,7 @@
   },
   {
     "key": "shy-guy",
+    "type": "character",
     "group": 5,
     "name": "Shy Guy",
     "icon": "../images/characters/shy-guy.png",
@@ -305,6 +321,7 @@
   },
   {
     "key": "larry",
+    "type": "character",
     "group": 5,
     "name": "Larry",
     "icon": "../images/characters/larry.png",
@@ -324,6 +341,7 @@
   },
   {
     "key": "cat-peach",
+    "type": "character",
     "group": 6,
     "name": "Cat Peach",
     "icon": "../images/characters/cat-peach.png",
@@ -343,6 +361,7 @@
   },
   {
     "key": "villager-girl",
+    "type": "character",
     "group": 6,
     "name": "Villager Girl",
     "icon": "../images/characters/villager-girl.png",
@@ -362,6 +381,7 @@
   },
   {
     "key": "inkling-girl",
+    "type": "character",
     "group": 6,
     "name": "Inkling Girl",
     "icon": "../images/characters/inkling-girl.png",
@@ -381,6 +401,7 @@
   },
   {
     "key": "peach",
+    "type": "character",
     "group": 7,
     "name": "Peach",
     "icon": "../images/characters/peach.png",
@@ -400,6 +421,7 @@
   },
   {
     "key": "daisy",
+    "type": "character",
     "group": 7,
     "name": "Daisy",
     "icon": "../images/characters/daisy.png",
@@ -419,6 +441,7 @@
   },
   {
     "key": "yoshi",
+    "type": "character",
     "group": 7,
     "name": "Yoshi",
     "icon": "../images/characters/yoshi.png",
@@ -438,6 +461,7 @@
   },
   {
     "key": "tanooki-mario",
+    "type": "character",
     "group": 8,
     "name": "Tanooki Mario",
     "icon": "../images/characters/tanooki-mario.png",
@@ -457,6 +481,7 @@
   },
   {
     "key": "villager-boy",
+    "type": "character",
     "group": 8,
     "name": "Villager Boy",
     "icon": "../images/characters/villager-boy.png",
@@ -476,6 +501,7 @@
   },
   {
     "key": "inkling-boy",
+    "type": "character",
     "group": 8,
     "name": "Inkling Boy",
     "icon": "../images/characters/inkling-boy.png",
@@ -495,6 +521,7 @@
   },
   {
     "key": "mario",
+    "type": "character",
     "group": 9,
     "name": "Mario",
     "icon": "../images/characters/mario.png",
@@ -514,6 +541,7 @@
   },
   {
     "key": "ludwig",
+    "type": "character",
     "group": 9,
     "name": "Ludwig",
     "icon": "../images/characters/ludwig.png",
@@ -533,6 +561,7 @@
   },
   {
     "key": "mii-medium",
+    "type": "character",
     "group": 9,
     "name": "Mii - Medium",
     "icon": "../images/characters/mii-medium.png",
@@ -552,6 +581,7 @@
   },
   {
     "key": "luigi",
+    "type": "character",
     "group": 10,
     "name": "Luigi",
     "icon": "../images/characters/luigi.png",
@@ -571,6 +601,7 @@
   },
   {
     "key": "iggy",
+    "type": "character",
     "group": 10,
     "name": "Iggy",
     "icon": "../images/characters/iggy.png",
@@ -590,6 +621,7 @@
   },
   {
     "key": "metal-mario",
+    "type": "character",
     "group": 11,
     "name": "Metal Mario",
     "icon": "../images/characters/metal-mario.png",
@@ -609,6 +641,7 @@
   },
   {
     "key": "gold-mario",
+    "type": "character",
     "group": 11,
     "name": "Gold Mario",
     "icon": "../images/characters/gold-mario.png",
@@ -628,6 +661,7 @@
   },
   {
     "key": "pink-gold-peach",
+    "type": "character",
     "group": 11,
     "name": "Pink Gold Peach",
     "icon": "../images/characters/pink-gold-peach.png",
@@ -647,6 +681,7 @@
   },
   {
     "key": "rosalina",
+    "type": "character",
     "group": 12,
     "name": "Rosalina",
     "icon": "../images/characters/rosalina.png",
@@ -666,6 +701,7 @@
   },
   {
     "key": "link",
+    "type": "character",
     "group": 12,
     "name": "Link",
     "icon": "../images/characters/link.png",
@@ -685,6 +721,7 @@
   },
   {
     "key": "king-boo",
+    "type": "character",
     "group": 12,
     "name": "King Boo",
     "icon": "../images/characters/king-boo.png",
@@ -704,6 +741,7 @@
   },
   {
     "key": "donkey-kong",
+    "type": "character",
     "group": 13,
     "name": "Donkey Kong",
     "icon": "../images/characters/donkey-kong.png",
@@ -723,6 +761,7 @@
   },
   {
     "key": "waluigi",
+    "type": "character",
     "group": 13,
     "name": "Waluigi",
     "icon": "../images/characters/waluigi.png",
@@ -742,6 +781,7 @@
   },
   {
     "key": "roy",
+    "type": "character",
     "group": 13,
     "name": "Roy",
     "icon": "../images/characters/roy.png",
@@ -761,6 +801,7 @@
   },
   {
     "key": "wario",
+    "type": "character",
     "group": 14,
     "name": "Wario",
     "icon": "../images/characters/wario.png",
@@ -780,6 +821,7 @@
   },
   {
     "key": "dry-bowser",
+    "type": "character",
     "group": 14,
     "name": "Dry Bowser",
     "icon": "../images/characters/dry-bowser.png",
@@ -799,6 +841,7 @@
   },
   {
     "key": "bowser",
+    "type": "character",
     "group": 15,
     "name": "Bowser",
     "icon": "../images/characters/bowser.png",
@@ -818,6 +861,7 @@
   },
   {
     "key": "morton",
+    "type": "character",
     "group": 15,
     "name": "Morton",
     "icon": "../images/characters/morton.png",
@@ -837,6 +881,7 @@
   },
   {
     "key": "mii-large",
+    "type": "character",
     "group": 15,
     "name": "Mii - Large",
     "icon": "../images/characters/mii-large.png",
