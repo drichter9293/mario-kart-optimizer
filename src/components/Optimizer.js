@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Button,
@@ -9,23 +9,8 @@ import {
   Checkbox
 } from "@material-ui/core";
 
+import { useFormState } from "../utils/form";
 import { STATS } from "../constants";
-
-const useFormState = () => {
-  const initialValues = STATS.reduce((initialValues, stat) => {
-    initialValues[stat.key] = false;
-    return initialValues;
-  }, {});
-  const [formValues, setFormValues] = useState(initialValues);
-  const setFormValue = (stat, value) => {
-    setFormValues({
-      ...formValues,
-      [stat]: value
-    });
-  };
-
-  return [formValues, setFormValue];
-};
 
 const getStatSumForElement = (element, stats) => {
   return stats.reduce((accumulator, statKey) => {
@@ -76,13 +61,17 @@ const getOptimizedIndices = ({
 };
 
 const Optimizer = props => {
-  const [formValues, setFormValue] = useFormState();
+  const initialValues = STATS.reduce((initialValues, stat) => {
+    initialValues[stat.key + "_checked"] = false;
+    return initialValues;
+  }, {});
+  const [formValues, setFormValue] = useFormState(initialValues);
 
   const onOptimize = () => {
     const statsToOptimize = [];
-    Object.entries(formValues).forEach(([key, value]) => {
-      if (value) {
-        statsToOptimize.push(key);
+    STATS.forEach(stat => {
+      if (formValues[stat.key + "_checked"]) {
+        statsToOptimize.push(stat.key);
       }
     });
 
@@ -124,9 +113,9 @@ const Optimizer = props => {
               control={
                 <Checkbox
                   value={stat.key}
-                  checked={formValues[stat.key]}
+                  checked={formValues[stat.key + "_checked"]}
                   onChange={event =>
-                    setFormValue(stat.key, event.target.checked)
+                    setFormValue(stat.key + "_checked", event.target.checked)
                   }
                 />
               }
