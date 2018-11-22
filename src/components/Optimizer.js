@@ -2,11 +2,10 @@ import React from "react";
 
 import {
   Button,
-  FormControl,
-  FormLabel,
-  FormGroup,
   FormControlLabel,
-  Checkbox
+  Checkbox,
+  Select,
+  MenuItem
 } from "@material-ui/core";
 
 import { useFormState } from "../utils/form";
@@ -63,6 +62,8 @@ const getOptimizedIndices = ({
 const Optimizer = props => {
   const initialValues = STATS.reduce((initialValues, stat) => {
     initialValues[stat.key + "_checked"] = false;
+    initialValues[stat.key + "_min"] = "0.00";
+    initialValues[stat.key + "_max"] = "6.00";
     return initialValues;
   }, {});
   const [formValues, setFormValue] = useFormState(initialValues);
@@ -98,31 +99,59 @@ const Optimizer = props => {
     props.setSelectedGliderIndex(gliderIndex);
   };
 
+  const numericOptions = [];
+  for (let i = 0; i <= 6; i += 0.25) {
+    numericOptions.push(i.toFixed(2));
+  }
+
   return (
     <div>
       <Button variant="contained" color="primary" onClick={onOptimize}>
         Optimize
       </Button>
-      <FormControl>
-        <FormLabel>Optimize for:</FormLabel>
-        <FormGroup row={true}>
-          {STATS.map(stat => (
-            <FormControlLabel
-              key={stat.key}
-              label={stat.displayName}
-              control={
-                <Checkbox
-                  value={stat.key}
-                  checked={formValues[stat.key + "_checked"]}
-                  onChange={event =>
-                    setFormValue(stat.key + "_checked", event.target.checked)
-                  }
-                />
-              }
-            />
-          ))}
-        </FormGroup>
-      </FormControl>
+      {STATS.map(stat => (
+        <div style={{ display: "flex", width: "300px" }}>
+          <FormControlLabel
+            key={stat.key}
+            label={stat.displayName}
+            control={
+              <Checkbox
+                value={stat.key}
+                checked={formValues[stat.key + "_checked"]}
+                onChange={event =>
+                  setFormValue(stat.key + "_checked", event.target.checked)
+                }
+              />
+            }
+          />
+          <Select
+            key="min"
+            value={formValues[stat.key + "_min"]}
+            onChange={event => {
+              setFormValue(stat.key + "_min", event.target.value);
+            }}
+          >
+            {numericOptions.map(option => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+          <Select
+            key="max"
+            value={formValues[stat.key + "_max"]}
+            onChange={event => {
+              setFormValue(stat.key + "_max", event.target.value);
+            }}
+          >
+            {numericOptions.map(option => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </div>
+      ))}
     </div>
   );
 };
