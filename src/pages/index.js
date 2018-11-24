@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { setConfig } from "react-hot-loader";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 
 import StatsDisplay from "../components/StatsDisplay";
 import ElementSelector from "../components/ElementSelector";
@@ -58,10 +57,6 @@ export default ({ data }) => {
             setSelectedElementIndex={setSelectedGliderIndex}
           />
         </div>
-        <Img fixed={selectedCharacter.icon.childImageSharp.fixed} />
-        <Img fixed={selectedBody.icon.childImageSharp.fixed} />
-        <Img fixed={selectedTire.icon.childImageSharp.fixed} />
-        <Img fixed={selectedGlider.icon.childImageSharp.fixed} />
         <StatsDisplay
           character={selectedCharacter}
           body={selectedBody}
@@ -107,8 +102,8 @@ export const dataFieldsFragment = graphql`
         name
         icon {
           childImageSharp {
-            fixed(width: 200, height: 125) {
-              ...GatsbyImageSharpFixed
+            fluid(maxHeight: 150) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

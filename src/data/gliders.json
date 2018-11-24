@@ -247,11 +247,11 @@
     "turbo": 2
   },
   {
-    "key": "kmtv-parafoil",
+    "key": "mktv-parafoil",
     "type": "glider",
     "group": 3,
     "name": "MKTV Parafoil",
-    "icon": "../images/gliders/kmtv-parafoil.png",
+    "icon": "../images/gliders/mktv-parafoil.png",
     "speed": 0,
     "speed-water": 0,
     "speed-air": 1,

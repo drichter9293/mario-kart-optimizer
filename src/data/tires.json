@@ -38,11 +38,11 @@
     "turbo": 3
   },
   {
-    "key": "gla",
+    "key": "gla-tires",
     "type": "tire",
     "group": 0,
     "name": "GLA Tires",
-    "icon": "../images/tires/gla.png",
+    "icon": "../images/tires/gla-tires.png",
     "speed": 2,
     "speed-water": 3,
     "speed-air": 3,
