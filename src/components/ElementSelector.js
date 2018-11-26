@@ -7,20 +7,26 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  ListItemText
+  ListItemText,
+  withStyles
 } from "@material-ui/core";
+
+const styles = theme => ({
+  formControl: {
+    margin: theme.spacing.unit
+  }
+});
 
 const ElementSelector = props => {
   const currentNode = props.elements[props.selectedElementIndex].node;
+  const { classes } = props;
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <div style={{ width: "70px" }}>
-        <Img
-          style={{ width: "50px" }}
-          fluid={currentNode.icon.childImageSharp.fluid}
-        />
-      </div>
-      <FormControl style={{ width: "170px" }}>
+      <Img
+        style={{ width: "50px" }}
+        fluid={currentNode.icon.childImageSharp.fluid}
+      />
+      <FormControl className={classes.formControl} style={{ width: "170px" }}>
         <InputLabel>{props.elementName}</InputLabel>
         <Select
           value={props.selectedElementIndex}
@@ -45,4 +51,4 @@ const ElementSelector = props => {
   );
 };
 
-export default ElementSelector;
+export default withStyles(styles)(ElementSelector);

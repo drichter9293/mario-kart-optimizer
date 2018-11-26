@@ -5,11 +5,20 @@ import {
   FormControlLabel,
   Checkbox,
   Select,
-  MenuItem
+  MenuItem,
+  FormControl,
+  InputLabel,
+  withStyles
 } from "@material-ui/core";
 
 import { useFormState } from "../utils/form";
 import { STATS } from "../constants";
+
+const styles = theme => ({
+  formControl: {
+    margin: theme.spacing.unit
+  }
+});
 
 const getStatSumForElement = (element, stats) => {
   return stats.reduce((accumulator, statKey) => {
@@ -104,16 +113,20 @@ const Optimizer = props => {
     numericOptions.push(i.toFixed(2));
   }
 
+  const { classes } = props;
+
   return (
     <div>
       <Button variant="contained" color="primary" onClick={onOptimize}>
         Optimize
       </Button>
       {STATS.map(stat => (
-        <div style={{ display: "flex", width: "300px" }}>
+        <div style={{ width: "500px" }}>
           <FormControlLabel
             key={stat.key}
             label={stat.displayName}
+            className={classes.formControl}
+            style={{ width: "130px" }}
             control={
               <Checkbox
                 value={stat.key}
@@ -124,36 +137,42 @@ const Optimizer = props => {
               />
             }
           />
-          <Select
-            key="min"
-            value={formValues[stat.key + "_min"]}
-            onChange={event => {
-              setFormValue(stat.key + "_min", event.target.value);
-            }}
-          >
-            {numericOptions.map(option => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </Select>
-          <Select
-            key="max"
-            value={formValues[stat.key + "_max"]}
-            onChange={event => {
-              setFormValue(stat.key + "_max", event.target.value);
-            }}
-          >
-            {numericOptions.map(option => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </Select>
+          <FormControl className={classes.formControl}>
+            <InputLabel>Min</InputLabel>
+            <Select
+              key="min"
+              value={formValues[stat.key + "_min"]}
+              onChange={event => {
+                setFormValue(stat.key + "_min", event.target.value);
+              }}
+            >
+              {numericOptions.map(option => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <InputLabel>Max</InputLabel>
+            <Select
+              key="max"
+              value={formValues[stat.key + "_max"]}
+              onChange={event => {
+                setFormValue(stat.key + "_max", event.target.value);
+              }}
+            >
+              {numericOptions.map(option => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
       ))}
     </div>
   );
 };
 
-export default Optimizer;
+export default withStyles(styles)(Optimizer);
