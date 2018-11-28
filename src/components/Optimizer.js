@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Button,
@@ -13,6 +13,8 @@ import {
 
 import { useFormState } from "../utils/form";
 import { STATS } from "../constants";
+
+import OptimizerResults from "./OptimizerResults";
 
 const styles = theme => ({
   formControl: {
@@ -68,6 +70,67 @@ const getOptimizedIndices = ({
   };
 };
 
+const getElementGroups = element => {
+  const elementGroups = {};
+  element.forEach(({ node }) => {
+    if (!elementGroups[node.group]) {
+      elementGroups[node.group] = node;
+    }
+  });
+  return elementGroups;
+};
+
+const getOptimizedIndicesWithLimits = ({
+  characters,
+  bodies,
+  tires,
+  gliders,
+  statsToOptimize
+}) => {
+  const characterGroups = getElementGroups(characters);
+  const bodyGroups = getElementGroups(bodies);
+  const tireGroups = getElementGroups(tires);
+  const gliderGroups = getElementGroups(gliders);
+
+  let groupCombos = [];
+
+  let maxSum = Number.MIN_VALUE;
+
+  Object.values(characterGroups).forEach(characterGroup => {
+    const characterSum = getStatSumForElement(characterGroup, statsToOptimize);
+    Object.values(bodyGroups).forEach(bodyGroup => {
+      const bodySum = getStatSumForElement(bodyGroup, statsToOptimize);
+      Object.values(tireGroups).forEach(tireGroup => {
+        const tireSum = getStatSumForElement(tireGroup, statsToOptimize);
+        Object.values(gliderGroups).forEach(gliderGroup => {
+          const gliderSum = getStatSumForElement(gliderGroup, statsToOptimize);
+          const totalSum = characterSum + bodySum + tireSum + gliderSum;
+          if (totalSum > maxSum) {
+            groupCombos = [
+              {
+                characterGroup: characterGroup.group,
+                bodyGroup: bodyGroup.group,
+                tireGroup: tireGroup.group,
+                gliderGroup: gliderGroup.group
+              }
+            ];
+            maxSum = totalSum;
+          } else if (totalSum === maxSum) {
+            groupCombos.push({
+              characterGroup: characterGroup.group,
+              bodyGroup: bodyGroup.group,
+              tireGroup: tireGroup.group,
+              gliderGroup: gliderGroup.group
+            });
+          }
+        });
+      });
+    });
+  });
+
+  return groupCombos;
+};
+
 const Optimizer = props => {
   const initialValues = STATS.reduce((initialValues, stat) => {
     initialValues[stat.key + "_checked"] = false;
@@ -76,6 +139,7 @@ const Optimizer = props => {
     return initialValues;
   }, {});
   const [formValues, setFormValue] = useFormState(initialValues);
+  const [optimizedGroupCombos, setOptimizedGroupCombos] = useState([]);
 
   const onOptimize = () => {
     const statsToOptimize = [];
@@ -97,6 +161,16 @@ const Optimizer = props => {
       statsToOptimize
     });
 
+    const optimizedGroupCombos = getOptimizedIndicesWithLimits({
+      characters: props.characters,
+      bodies: props.bodies,
+      tires: props.tires,
+      gliders: props.gliders,
+      statsToOptimize
+    });
+
+    setOptimizedGroupCombos(optimizedGroupCombos);
+
     const characterIndex = optimizedIndices.characterIndices[0];
     const bodyIndex = optimizedIndices.bodyIndices[0];
     const tireIndex = optimizedIndices.tireIndices[0];
@@ -116,61 +190,72 @@ const Optimizer = props => {
   const { classes } = props;
 
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <Button variant="contained" color="primary" onClick={onOptimize}>
         Optimize
       </Button>
-      {STATS.map(stat => (
-        <div style={{ width: "500px" }}>
-          <FormControlLabel
-            key={stat.key}
-            label={stat.displayName}
-            className={classes.formControl}
-            style={{ width: "130px" }}
-            control={
-              <Checkbox
-                value={stat.key}
-                checked={formValues[stat.key + "_checked"]}
-                onChange={event =>
-                  setFormValue(stat.key + "_checked", event.target.checked)
-                }
-              />
-            }
-          />
-          <FormControl className={classes.formControl}>
-            <InputLabel>Min</InputLabel>
-            <Select
-              key="min"
-              value={formValues[stat.key + "_min"]}
-              onChange={event => {
-                setFormValue(stat.key + "_min", event.target.value);
-              }}
-            >
-              {numericOptions.map(option => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <FormControl className={classes.formControl}>
-            <InputLabel>Max</InputLabel>
-            <Select
-              key="max"
-              value={formValues[stat.key + "_max"]}
-              onChange={event => {
-                setFormValue(stat.key + "_max", event.target.value);
-              }}
-            >
-              {numericOptions.map(option => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
-      ))}
+      <div>
+        {STATS.map(stat => (
+          <div key={stat.key} style={{ width: "350px" }}>
+            <FormControlLabel
+              key={stat.key}
+              label={stat.displayName}
+              className={classes.formControl}
+              style={{ width: "130px" }}
+              control={
+                <Checkbox
+                  value={stat.key}
+                  checked={formValues[stat.key + "_checked"]}
+                  onChange={event =>
+                    setFormValue(stat.key + "_checked", event.target.checked)
+                  }
+                />
+              }
+            />
+            <FormControl key="min" className={classes.formControl}>
+              <InputLabel>Min</InputLabel>
+              <Select
+                key="min"
+                value={formValues[stat.key + "_min"]}
+                onChange={event => {
+                  setFormValue(stat.key + "_min", event.target.value);
+                }}
+              >
+                {numericOptions.map(option => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControl key="max" className={classes.formControl}>
+              <InputLabel>Max</InputLabel>
+              <Select
+                key="max"
+                value={formValues[stat.key + "_max"]}
+                onChange={event => {
+                  setFormValue(stat.key + "_max", event.target.value);
+                }}
+              >
+                {numericOptions.map(option => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </div>
+        ))}
+      </div>
+      {optimizedGroupCombos.length > 0 && (
+        <OptimizerResults
+          groupCombos={optimizedGroupCombos}
+          characters={props.characters}
+          bodies={props.bodies}
+          tires={props.tires}
+          gliders={props.gliders}
+        />
+      )}
     </div>
   );
 };

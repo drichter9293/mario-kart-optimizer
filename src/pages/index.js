@@ -100,6 +100,7 @@ export const dataFieldsFragment = graphql`
     edges {
       node {
         name
+        group
         icon {
           childImageSharp {
             fluid(maxHeight: 150) {
