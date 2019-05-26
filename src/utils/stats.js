@@ -1,6 +1,6 @@
 import { STATS } from "../constants";
 
-const standardize = (characterPoints, bodyPoints, tirePoints, gliderPoints) => {
+export const standardize = (characterPoints, bodyPoints, tirePoints, gliderPoints) => {
   const level = characterPoints + bodyPoints + tirePoints + gliderPoints;
 
   return (level + 3) / 4;

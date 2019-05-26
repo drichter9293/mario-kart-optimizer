@@ -6,17 +6,22 @@ import {
   TableHead,
   TableRow,
   TableBody,
-  TableCell
+  TableCell,
+  Typography
 } from "@material-ui/core";
 
 import { STATS } from "../constants";
 
 const getElementsByGroup = elements => {
-  return elements.reduce((reduction, element) => {
+  return elements.reduce((reduction, element, index) => {
+    const value = {
+      ...element.node,
+      index,
+    }
     if (!reduction[element.node.group]) {
-      reduction[element.node.group] = [element.node];
+      reduction[element.node.group] = [value];
     } else {
-      reduction[element.node.group].push(element.node);
+      reduction[element.node.group].push(value);
     }
     return reduction;
   }, {});
@@ -44,12 +49,13 @@ const IconCell = ({ elements }) => {
   );
 };
 
-const OptimizerResults = ({
+const OptimizerResults = React.memo(({
   groupCombos,
   characters,
   bodies,
   tires,
-  gliders
+  gliders,
+  setSelectedElements
 }) => {
   const charactersByGroup = getElementsByGroup(characters);
   const bodiesByGroup = getElementsByGroup(bodies);
@@ -74,36 +80,54 @@ const OptimizerResults = ({
     return scoreB - scoreA;
   });
 
-  const top20Groups = sortedGroups.slice(0, 20);
+  const top10 = sortedGroups.slice(0, 10);
+
+  const selectedGroup = sortedGroups[0];
+
+  const characterIndex = charactersByGroup[selectedGroup.characterGroup][0].index;
+  const bodyIndex = bodiesByGroup[selectedGroup.bodyGroup][0].index
+  const tireIndex = tiresByGroup[selectedGroup.tireGroup][0].index
+  const gliderIndex = glidersByGroup[selectedGroup.gliderGroup][0].index
+  setSelectedElements({
+    characterIndex,
+    bodyIndex,
+    tireIndex,
+    gliderIndex,
+  });
 
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell numeric>Average Score</TableCell>
-          <TableCell>Character</TableCell>
-          <TableCell>Body</TableCell>
-          <TableCell>Tire</TableCell>
-          <TableCell>Glider</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {top20Groups.map(combo => {
-          const comboScore = getScoreForCombo(combo);
-          const averageStatScore = (comboScore / 6).toFixed(2);
-          return (
-            <TableRow>
-              <TableCell numeric>{averageStatScore}</TableCell>
-              <IconCell elements={charactersByGroup[combo.characterGroup]} />
-              <IconCell elements={bodiesByGroup[combo.bodyGroup]} />
-              <IconCell elements={tiresByGroup[combo.tireGroup]} />
-              <IconCell elements={glidersByGroup[combo.gliderGroup]} />
-            </TableRow>
-          );
-        })}
-      </TableBody>
-    </Table>
+    <div>
+      <Typography variant="h4">
+        Top 10 Results
+      </Typography>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Average Score</TableCell>
+            <TableCell>Character</TableCell>
+            <TableCell>Body</TableCell>
+            <TableCell>Tire</TableCell>
+            <TableCell>Glider</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {top10.map((combo, index) => {
+            const comboScore = getScoreForCombo(combo);
+            const averageStatScore = (comboScore / 6).toFixed(2);
+            return (
+              <TableRow key={index}>
+                <TableCell>{averageStatScore}</TableCell>
+                <IconCell elements={charactersByGroup[combo.characterGroup]} />
+                <IconCell elements={bodiesByGroup[combo.bodyGroup]} />
+                <IconCell elements={tiresByGroup[combo.tireGroup]} />
+                <IconCell elements={glidersByGroup[combo.gliderGroup]} />
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </div>
   );
-};
+});
 
 export default OptimizerResults;

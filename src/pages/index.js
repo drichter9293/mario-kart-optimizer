@@ -7,6 +7,8 @@ import StatsDisplay from "../components/StatsDisplay";
 import ElementSelector from "../components/ElementSelector";
 import Optimizer from "../components/Optimizer";
 
+import { Typography } from '@material-ui/core'
+
 // Unfortunate necessity to get hooks to work.
 // Follow https://github.com/gatsbyjs/gatsby/issues/9489 for updates.
 setConfig({ pureSFC: true });
@@ -28,8 +30,18 @@ export default ({ data }) => {
   const gliders = data.gliders.edges;
   const selectedGlider = gliders[selectedGliderIndex].node;
 
+  const setSelectedElements = React.useCallback(({ characterIndex, bodyIndex, tireIndex, gliderIndex }) => {
+    setSelectedCharacterIndex(characterIndex);
+    setSelectedBodyIndex(bodyIndex);
+    setSelectedTireIndex(tireIndex);
+    setSelectedGliderIndex(gliderIndex);
+  }, [setSelectedCharacterIndex, setSelectedBodyIndex, setSelectedTireIndex, setSelectedGliderIndex]);
+
   return (
     <>
+      <Typography variant="h2" align="center">
+        Mario Kart 8 Deluxe Optimizer
+      </Typography>
       <div style={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
         <div>
           <ElementSelector
@@ -69,10 +81,7 @@ export default ({ data }) => {
         bodies={bodies}
         tires={tires}
         gliders={gliders}
-        setSelectedCharacterIndex={setSelectedCharacterIndex}
-        setSelectedBodyIndex={setSelectedBodyIndex}
-        setSelectedTireIndex={setSelectedTireIndex}
-        setSelectedGliderIndex={setSelectedGliderIndex}
+        setSelectedElements={setSelectedElements}
       />
     </>
   );
